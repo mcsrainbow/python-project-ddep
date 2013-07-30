@@ -15,7 +15,7 @@ from utils.torndb import Connection
 from service.config import dbconf, userconf
 
 def parse_opts():
-    """Help messages (-h, --help) for ddep.py."""
+    """Help messages (-h, --help) for ddep.py"""
     
     # import the libraries
     import textwrap
