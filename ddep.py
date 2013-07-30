@@ -26,7 +26,7 @@ def parse_opts():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         description=textwrap.dedent(
         '''
-        example:
+        examples:
           ./ddep.py -H symbio1,symbio2,symbio3 -r demo -t upload
           ./ddep.py -g webserver -r demo -t upload
           ./ddep.py -g webserver -r demo -t upload -f 2
