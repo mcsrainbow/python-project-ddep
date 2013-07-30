@@ -1,7 +1,7 @@
 #!/bin/bash
 
-SYS_DEPS=(python-pip python-setuptools python-devel gcc make gcc-c++)
-PYTHON_DEPS=(MySQL-python paramiko fabric)
+SYS_DEPS=(python-pip python-setuptools python-devel gcc make gcc-c++ MySQL-python)
+PYTHON_DEPS=(paramiko fabric)
 
 function install_dependencies()
 {
