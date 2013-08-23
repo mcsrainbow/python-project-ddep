@@ -27,7 +27,7 @@ def parse_opts():
         description=textwrap.dedent(
         '''
         examples:
-          ./ddep.py -H symbio1,symbio2,symbio3 -p demo -t upload
+          ./ddep.py -H web1,web2,web3 -p demo -t upload
           ./ddep.py -g webserver -p demo -t upload
           ./ddep.py -g webserver -p demo -t upload -z 2
         '''
@@ -36,8 +36,8 @@ def parse_opts():
     exclusion = parser.add_mutually_exclusive_group()
 
     # set the arguments
-    exclusion.add_argument('-g', metavar='host_group', type=str,
-            help='all hosts of the host_group')
+    exclusion.add_argument('-g', metavar='group', type=str,
+            help='all hosts of the group')
     exclusion.add_argument('-H', metavar='hosts', type=str,
             help='comma-separated list of hosts to operate on')
     parser.add_argument('-p', metavar='project', type=str, required=True,
