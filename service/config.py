@@ -37,7 +37,7 @@ def userconf():
         file = os.path.join(settings.CONFIG_HOME, 'auth.ini')
         config.read(file)
         user = config.get("default", "user")
-        keyfile = config.get("default", "keyfile")
+        keyfile = settings.PROJECT_HOME + "/data/keyfiles/" + config.get("default", "keyfile")
     except ConfigParser.Error, e:
         print '{0}'.format(e)
         return False

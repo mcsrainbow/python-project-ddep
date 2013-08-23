@@ -34,12 +34,11 @@ class FabricSupport(object):
     def deploy(self):
         print(green("Deploy action"))
         cmds = [
-                'mv -f /tmp/demo_upload.txt /home/adsymp/jetty/webapps/demo_upload.txt.YYYYMMDD',
-                'mv -f /home/adsymp/jetty/webapps/demo_upload.txt /home/adsymp/jetty/webapps/demo_upload.txt.prev',
-                'cp -a /home/adsymp/jetty/webapps/demo_upload.txt.YYYYMMDD /home/adsymp/jetty/webapps/demo_upload.txt',
+                'cp -a /tmp/demo_deploy.txt /tmp/demo_deploy.txt.prev',
+                'mv -f /tmp/demo_upload.txt /tmp/demo_deploy.txt',
                ]
         sudo(' && '.join(cmds))
 
     def rollback(self):
         print(green("Rollback action"))
-        sudo('mv -f /home/adsymp/jetty/webapps/demo_upload.txt.prev /home/adsymp/jetty/webapps/demo_upload.txt')
+        sudo('mv -f /tmp/demo_deploy.txt.prev /tmp/demo_deploy.txt')

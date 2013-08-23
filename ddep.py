@@ -27,30 +27,30 @@ def parse_opts():
         description=textwrap.dedent(
         '''
         examples:
-          ./ddep.py -H symbio1,symbio2,symbio3 -r demo -t upload
-          ./ddep.py -g webserver -r demo -t upload
-          ./ddep.py -g webserver -r demo -t upload -f 2
+          ./ddep.py -H symbio1,symbio2,symbio3 -p demo -t upload
+          ./ddep.py -g webserver -p demo -t upload
+          ./ddep.py -g webserver -p demo -t upload -z 2
         '''
         ))
     
     exclusion = parser.add_mutually_exclusive_group()
 
     # set the arguments
-    exclusion.add_argument('-g', metavar='group', type=str,
-            help='Deploy to all hosts in the group.')
+    exclusion.add_argument('-g', metavar='host_group', type=str,
+            help='all hosts of the host_group')
     exclusion.add_argument('-H', metavar='hosts', type=str,
-            help='Deploy to the hosts.')
-    parser.add_argument('-r', metavar='project', type=str, required=True,
-            help='Execute the project.')
+            help='comma-separated list of hosts to operate on')
+    parser.add_argument('-p', metavar='project', type=str, required=True,
+            help='plugged-in project')
     parser.add_argument('-t', metavar='task', type=str, required=True,
-            help='The task name of the project.')
-    parser.add_argument('-f', metavar='number', type=int, 
-            help='The number of concurrent processes to use in parallel mode.')
+            help='task of the project')
+    parser.add_argument('-z', metavar='number', type=int, 
+            help='number of concurrent processes to use in parallel mode')
 
     args = parser.parse_args()
     
     # return the values of arguments
-    return {'group':args.g, 'host':args.H, 'project':args.r, 'task':args.t, 'number':args.f}
+    return {'group':args.g, 'host':args.H, 'project':args.p, 'task':args.t, 'number':args.z}
 
 def fab_execute(**kwargs):
     """Execute the task from service/{taskname}.py with class FabricSupport."""
@@ -87,10 +87,10 @@ def run_task_from_db(opts):
     db = Connection(dbopts["host"], dbopts["database"], dbopts["user"], dbopts["password"])
 
     # get the hosts from database
-    sql = """SELECT * FROM hosts WHERE `group` like '{0}'""".format('%%' + opts["group"] + '%%')
+    sql = """SELECT * FROM host WHERE hostgroup_name = '{0}'""".format(opts["group"])
     result = []
     for item in db.query(sql):
-        result.append(item.public_ip)
+        result.append(item.ec2_local_hostname)
     host = ','.join(result)
 
     # run fab_execute

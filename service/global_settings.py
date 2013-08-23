@@ -5,5 +5,7 @@
 # Date: Fri 29 Mar 2013 10:37:48 AM CST
 # Author: Dong Guo
 
-PROJECT_HOME = "/home/dong.guo/workspace/github/python-projects-ddep/ddep"
-CONFIG_HOME = "/home/dong.guo/workspace/github/python-projects-ddep/ddep/conf"
+import os
+
+PROJECT_HOME = os.getcwd()
+CONFIG_HOME = PROJECT_HOME + "/conf"
