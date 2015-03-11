@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 
-# FileName: __init.py
-# Date: Sat 30 Mar 2013 07:28:42 PM CST
 # Author: Dong Guo
+# Last modified: 2015-03-11 02:51 UTC
 
 from config import dbconf

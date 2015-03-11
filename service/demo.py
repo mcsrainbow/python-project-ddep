@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 
-# FileName: demo.py
-# Date: Fri 29 Mar 2013 04:51:25 AM CST
 # Author: Dong Guo
+# Last modified: 2015-03-11 02:47 UTC
 
 from fabric.api import *
 from fabric.colors import *

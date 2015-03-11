@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 
-# FileName: fabfile.py
-# Date: Thu 28 Mar 2013 10:21:18 PM CST
+# Description: Read hosts inventories from MySQL + Execute plugged-in Fabric tasks
 # Author: Dong Guo
+# Last modified: 2015-03-11 02:52 UTC
 
 import sys
 import os
@@ -121,14 +121,15 @@ def run_task(opts):
 
 def main():
     # check if user executes the script without any arguments
-    argv_len = len(sys.argv)
-    if argv_len < 2:
-        os.system("./ddep.py -h")
-        return None 
+    if len(sys.argv) < 2:
+        os.system(__file__ + ' -h')
+        return 2
 
     # get the arguments and trigger the run_task
     opts = parse_opts()
     run_task(opts)
 
+    return 0
+
 if __name__=='__main__':
-    main()
+    sys.exit(main())

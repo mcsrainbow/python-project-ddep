@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 
-# FileName: global_settings.py
-# Date: Fri 29 Mar 2013 10:37:48 AM CST
 # Author: Dong Guo
+# Last modified: 2015-03-11 02:51 UTC
 
 import os
 

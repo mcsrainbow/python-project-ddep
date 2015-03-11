@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 
-# FileName: config.py
-# Date: Fri 29 Mar 2013 07:26:50 AM CST
 # Author: Dong Guo
+# Last modified: 2015-03-11 02:50 UTC
 
 import os
 import ConfigParser
