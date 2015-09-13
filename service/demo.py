@@ -27,15 +27,13 @@ class FabricSupport(object):
 
     def upload(self):
         print(green("Transfer the file demo_upload.txt"))
-        with lcd (settings.PROJECT_HOME):
+        with lcd(settings.PROJECT_HOME):
             put('data/demo/demo_upload.txt','/tmp/') 
 
     def deploy(self):
         print(green("Deploy action"))
-        cmds = [
-                'cp -a /tmp/demo_deploy.txt /tmp/demo_deploy.txt.prev',
-                'mv -f /tmp/demo_upload.txt /tmp/demo_deploy.txt',
-               ]
+        cmds = ['cp -a /tmp/demo_deploy.txt /tmp/demo_deploy.txt.prev',
+                'mv -f /tmp/demo_upload.txt /tmp/demo_deploy.txt']
         sudo(' && '.join(cmds))
 
     def rollback(self):
