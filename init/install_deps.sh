@@ -17,7 +17,7 @@ function install_dependencies(){
 
 function install_sys_dep(){         
   if [[ $(rpm -q ${1} |grep -wc "not") = 1 ]]; then
-    yum -y -q install  $1
+    yum -y -q install  ${1}
   else
     echo "Package \"${1}\" was already installed."
   fi
@@ -25,7 +25,7 @@ function install_sys_dep(){
 
 function install_python_dep(){                          
   if [[ $(python-pip freeze |grep -wc "${1}") = 0 ]]; then
-    python-pip -q install $1
+    pip -q install ${1}
   else
     echo "Python package \"${1}\" was already installed."
   fi
