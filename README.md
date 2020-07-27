@@ -1,3 +1,3 @@
-DDEP = Drawbridge Deployment Engine
---------------------------------------
-Read hosts inventories from MySQL + Execute plugged-in Fabric tasks
+### DDEP = Drawbridge Deployment Engine
+
+Read hosts inventories from MySQL and execute plugged-in Fabric tasks
